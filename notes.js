@@ -89,6 +89,9 @@ search.addEventListener("input", function(){
         // console.log(cardTxt);
     })
 })
+function important(index){
+  console.log("This is very important");
+}
 
 
 
