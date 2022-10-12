@@ -1,5 +1,8 @@
 console.log("Welcome to notes app. This is app.js");
 showNotes();
+let showbtn=document.getElementById("btn3")
+
+
 
 
 let notes = localStorage.getItem("notes");
@@ -54,7 +57,8 @@ function showNotes() {
                     <div class="card-body">
                         <h5 class="card-title">${element.title}</h5>
                         <p class="card-text"> ${element.text}</p>
-                        <button id="${index}"onclick="deleteNote(this.id)" class="btn btn-primary">Delete Note</button>
+                        <button id="btn${index}"onclick="deleteNote(this.id)" class="btn btn-primary">Delete Note</button>
+                        <button id="${index}"onclick="important(this.id)" class="btn btn-primary">Important</button>
                     </div>
                 </div>`;
   });
@@ -67,7 +71,50 @@ function showNotes() {
 }
 
 
- 
+
+// function to show important notes
+
+
+
+showbtn.addEventListener("click", showImportantNotes);
+
+function showImportantNotes() {
+
+  let noteCards = document.getElementsByClassName('noteCard');
+    Array.from(noteCards).forEach(function(element){
+        // let cardTxt = element.getElementsByTagName("p")[0].innerText;
+        // if(cardTxt.includes(inputVal)){
+        //     element.style.display = "block";
+        // }
+        // else{
+        //     element.style.display = "none";
+        // }
+        if(element.classList.contains("important")){
+            element.style.display = "block";
+        }
+        else{
+            element.style.display = "none";
+        }  
+    })
+    
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Function to delete a note
 function deleteNote(index) {
@@ -101,9 +148,11 @@ search.addEventListener("input", function(){
 function important(index){
   // console.log(index);
 
-  let classnote=document.getElementsByClassName("noteCard")  
+  console.log(index)
+  let classnote=document.getElementById(`div${index}`)  
   console.log(classnote)
-  let requirednote=classnote.getElementById
+  classnote.classList.add('important')
+  
 
   // let notes = localStorage.getItem("notes");
   // if (notes == null) {
