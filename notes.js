@@ -58,9 +58,8 @@ function showNotes() {
                         <h5 class="card-title">${element.title}</h5>
                         <p class="card-text"> ${element.text}</p>
                         <button id="btn${index}"onclick="deleteNote(this.id)" class="btn btn-primary">Delete Note</button>
-                        <button id="${index}"onclick="important(this.id)" class="btn btn-primary">Important</button>
-                    </div>
-                </div>`;
+                        </div>
+                        </div>`;
   });
   let notesElm = document.getElementById("notes");
   if (notesObj.length != 0) {
@@ -130,8 +129,8 @@ function deleteNote(index) {
 
 let search = document.getElementById('searchTxt');
 search.addEventListener("input", function(){
-
-    let inputVal = search.value.toLowerCase();
+  
+  let inputVal = search.value.toLowerCase();
     // console.log('Input event fired!', inputVal);
     let noteCards = document.getElementsByClassName('noteCard');
     Array.from(noteCards).forEach(function(element){
@@ -160,7 +159,7 @@ function important(index){
   // } else {
   //   notesObj = JSON.parse(notes);
   // } 
-
+  
 
   // notesObj[this.index].classList.add("important");
   
@@ -181,3 +180,4 @@ Further Features:
 3. Separate notes by user
 4. Sync and host to web server 
 */
+// <button id="${index}"onclick="important(this.id)" class="btn btn-primary">Important</button>
